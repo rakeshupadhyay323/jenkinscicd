@@ -9,10 +9,8 @@ pipeline {
             }
             steps {
 				echo "In here"
-                checkout([$class: 'GitSCM', 
-                branches: [[name: */main]],
-                extensions: [[$class: 'SparseCheckoutPaths',sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'is/packages/']]]]
-				])
+                git sparse-checkout init --cone
+				git sparse-checkout add is/packages/ is/tests/
 			}
         }    
     }
