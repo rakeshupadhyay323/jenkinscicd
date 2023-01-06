@@ -3,23 +3,25 @@ pipeline {
 		label 'jenkinsagent'
 	}
     stages {
-        stage('Hello') {
-            steps {
-                script {
-					echo "Packages to deploy ${isPackagesToDeploy}"
-					git sparse-checkout init --cone
-					git sparse-checkout add is/configurations
-                    "mkdir is/tests/"
-					
-					if (params.isPackagesToDeploy == 'all') {
-						echo Deploy ALL packages
-						git sparse-checkout add is/packages/ is/tests/
-                        echo "Hello from main branch. Workspace = '$env.WORKSPACE'"
-                    }  else {
-                        echo "Hello from '$env.BRANCH_NAME' branch!. Workspace = '$env.WORKSPACE'"
-                    }
-                }
+        stage('Checkout All') {
+			when {
+                branch 'production'
+				params name: 'isPackagesToDeploy', value: 'all'
             }
-        }
+            steps {
+                checkout([$class: 'GitSCM', 
+                branches: [[name: '$params.branch']],
+                extensions: [
+								[
+									$class: 'SparseCheckoutPaths', 
+									sparseCheckoutPaths:[
+										[$class:'SparseCheckoutPath', path:'is/packages/'],
+										[$class:'SparseCheckoutPath', path:'is/tests/']
+									]
+								]
+							]
+				])
+			}
+        }    
     }
 }
