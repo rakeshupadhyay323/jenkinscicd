@@ -11,12 +11,7 @@ pipeline {
 				echo "In here"
                 checkout([$class: 'GitSCM', 
                 branches: [[name: */main]],
-                extensions: [
-								[
-									$class: 'SparseCheckoutPaths', 
-									sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'is/packages/'],[$class:'SparseCheckoutPath', path:'is/tests/']]
-								]
-							]
+                extensions: [[$class: 'SparseCheckoutPaths',sparseCheckoutPaths:[[$class:'SparseCheckoutPath', path:'is/packages/']]]]
 				])
 			}
         }    
