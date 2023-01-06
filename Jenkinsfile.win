@@ -6,7 +6,7 @@ pipeline {
         stage('Checkout All') {
 			when {
 				allOf{
-					params name: 'isPackagesToDeploy', value: 'all'
+					equals name: 'params.isPackagesToDeploy', value: 'all'
 				}
             }
             steps {
