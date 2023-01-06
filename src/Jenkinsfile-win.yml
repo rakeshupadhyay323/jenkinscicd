@@ -7,6 +7,7 @@ pipeline:
                   steps:
                     clean: true
                     script: |
+                        echo We are In
                         git sparse-checkout init --cone
                         git sparse-checkout add is/configurations
                         echo working dir $(System.DefaultWorkingDirectory)
