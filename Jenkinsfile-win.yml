@@ -8,4 +8,24 @@ pipeline:
             script: |
                 git sparse-checkout init --cone
                 git sparse-checkout add is/configurations
-                mkdir is\tests
+                mkdir is/tests
+                
+                IF ${isPackagesToDeploy} == "all" (
+                echo Deploy ALL packages
+                    git sparse-checkout add is/packages is/tests/
+                ) ELSE (
+                  CALL :Checkout ${isPackagesToDeploy}
+                )
+                ENDLOCAL
+                goto :EOF
+
+                :Checkout
+                set pkgList=%~1
+                echo list of packages to deploy %pkgList%
+                echo Deploy SINGLE packages
+                FOR %%a in ("%pkgList:,=" "%") do (
+                    git sparse-checkout add is/packages/%%~a is/tests/%%~aTest
+                )
+                git sparse-checkout list
+                ENDLOCAL
+                goto :EOF
