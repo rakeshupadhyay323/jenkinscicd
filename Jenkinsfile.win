@@ -15,8 +15,7 @@ pipeline {
 								[
 									$class: 'SparseCheckoutPaths', 
 									sparseCheckoutPaths:[
-										[$class:'SparseCheckoutPath', path:'is/packages/'],
-										[$class:'SparseCheckoutPath', path:'is/tests/']
+										[$class:'SparseCheckoutPath', path:'is/packages/'],[$class:'SparseCheckoutPath', path:'is/tests/']
 									]
 								]
 							]
