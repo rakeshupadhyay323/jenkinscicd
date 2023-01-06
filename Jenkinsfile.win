@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Checkout All') {
 			when {
-				expression {'params.isPackagesToDeploy' == 'all'}
+				expression {params.isPackagesToDeploy == 'all'}
             }
             steps {
                 checkout([$class: 'GitSCM', 
