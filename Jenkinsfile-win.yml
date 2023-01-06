@@ -1,8 +1,7 @@
-#Reference: https://plugins.jenkins.io/pipeline-as-yaml/
 pipeline:
     agent:
-        jenkinsagent:
-            stages:
-                - stage: "Checkout"
-                  steps:
-                    - echo We are In
+    jenkinsagent:
+    stages:
+    - stage: "Checkout"
+      steps:
+        - echo "We are In"
