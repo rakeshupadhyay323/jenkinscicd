@@ -8,9 +8,9 @@ pipeline {
 				expression {params.isPackagesToDeploy == 'all'}
             }
             steps {
-				- echo "In here"
-                - git sparse-checkout init --cone
-				- git sparse-checkout add is/packages/ is/tests/
+				bat 'echo "In here"'
+                bat 'git sparse-checkout init --cone'
+				bat 'git sparse-checkout add is/packages/ is/tests/'
 			}
         }
     }
