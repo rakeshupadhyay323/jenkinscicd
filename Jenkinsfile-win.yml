@@ -1,0 +1,36 @@
+#Reference: https://plugins.jenkins.io/pipeline-as-yaml/
+pipeline:
+    agent:
+        jenkinsagent:
+            stages:
+                - stage: "Checkout"
+                  steps:
+                    clean: true
+                    script: |
+                        echo We are In
+                        git sparse-checkout init --cone
+                        git sparse-checkout add is/configurations
+                        echo working dir $(System.DefaultWorkingDirectory)
+                        mkdir is\tests
+
+                        IF "%isPackagesToDeploy%" == "all" (
+                        echo Deploy ALL packages
+                            cd %SOURCECODEDIR%
+                            git sparse-checkout add is/packages is/tests/
+                        ) ELSE (
+                          CALL :Checkout "%isPackagesToDeploy%"
+                        )
+                        ENDLOCAL
+                        goto :EOF
+
+                        :Checkout
+                        set pkgList=%~1
+                        echo list of packages to deploy %pkgList%
+                        echo Deploy SINGLE packages
+                        FOR %%a in ("%pkgList:,=" "%") do (
+                            cd %SOURCECODEDIR%
+                            git sparse-checkout add is/packages/%%~a is/tests/%%~aTest
+                        )
+                        git sparse-checkout list
+                        ENDLOCAL
+                        goto :EOF  
