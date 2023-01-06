@@ -1,7 +1,6 @@
 pipeline:
-    agent:
-    jenkinsagent:
+    agent: jenkinsagent
     stages:
-    - stage: "Checkout"
-      steps:
-        - echo "We are In"
+        - stage: "Checkout"
+          steps:
+            - echo "We are In"
