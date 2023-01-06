@@ -11,6 +11,7 @@ pipeline {
 				bat 'echo "In here"'
                 bat 'git sparse-checkout init --cone'
 				bat 'git sparse-checkout add is/packages/ is/tests/'
+				bat 'git checkout'
 			}
         }
     }
