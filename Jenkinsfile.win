@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
 					echo "Packages to deploy ${isPackagesToDeploy}"
-                    if ('$env.BRANCH_NAME' == 'main') {
+                    if (${isPackagesToDeploy} == 'all') {
                         echo "Hello from main branch. Workspace = '$env.WORKSPACE'"
                     }  else {
                         echo "Hello from '$env.BRANCH_NAME' branch!. Workspace = '$env.WORKSPACE'"
