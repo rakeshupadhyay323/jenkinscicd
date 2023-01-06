@@ -10,11 +10,11 @@ pipeline:
                 git sparse-checkout add is/configurations
                 mkdir is/tests
                 
-                IF ${isPackagesToDeploy} == "all" (
+                IF "${isPackagesToDeploy}" == "all" (
                 echo Deploy ALL packages
                     git sparse-checkout add is/packages is/tests/
                 ) ELSE (
-                  CALL :Checkout ${isPackagesToDeploy}
+                  CALL :Checkout "${isPackagesToDeploy}"
                 )
                 ENDLOCAL
                 goto :EOF
