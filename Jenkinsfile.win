@@ -10,9 +10,9 @@ pipeline {
                     if ('$env.BRANCH_NAME' == 'main') {
                         echo "Hello from main branch. Workspace = '$env.WORKSPACE'"
                     }  else {
-                        echo "Hello from '$env.BRANCH_NAME' branch!"
+                        echo "Hello from '$env.BRANCH_NAME' branch!. Workspace = '$env.WORKSPACE'"
                     }
-                    }
+                }
             }
         }
     }
