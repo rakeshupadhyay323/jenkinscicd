@@ -9,9 +9,9 @@ pipeline {
             }
             steps {
 				bat 'echo "In here"'
-				git.exe config core.sparsecheckout true
-                git.exe sparse-checkout init --cone
-				git.exe sparse-checkout add is/packages
+				bat 'git config core.sparsecheckout true'
+                bat 'git sparse-checkout init --cone'
+				bat 'git sparse-checkout add src/is/packages'
 			}
         }
     }
