@@ -12,6 +12,6 @@ pipeline {
                 git sparse-checkout init --cone
 				git sparse-checkout add is/packages/ is/tests/
 			}
-        }    
+        }
     }
 }
