@@ -9,7 +9,8 @@ pipeline {
 					echo "Packages to deploy ${isPackagesToDeploy}"
 					git sparse-checkout init --cone
 					git sparse-checkout add is/configurations
-                    mkdir is/tests/
+                    mkdir "is/tests/"
+					
 					if (params.isPackagesToDeploy == 'all') {
 						echo Deploy ALL packages
 						git sparse-checkout add is/packages/ is/tests/
