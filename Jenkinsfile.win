@@ -8,6 +8,7 @@ pipeline {
 				expression {params.isPackagesToDeploy == 'all'}
             }
             steps {
+				echo "In here"
                 checkout([$class: 'GitSCM', 
                 branches: [[name: '$params.branch']],
                 extensions: [
