@@ -6,4 +6,3 @@ pipeline:
                 - stage: "Checkout"
                   steps:
                     - echo We are In
-             
