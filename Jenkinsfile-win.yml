@@ -8,11 +8,10 @@ pipeline:
             script: |
                 git sparse-checkout init --cone
                 git sparse-checkout add is/configurations
-                mkdir is/tests
-                
+                mkdir is/tests     
                 if ("${isPackagesToDeploy}" == "all") {
-                echo Deploy ALL packages
-                    git sparse-checkout add is/packages is/tests/
+                   echo Deploy ALL packages
+                   git sparse-checkout add is/packages/ is/tests/
                 } else {
                   CALL :Checkout "${isPackagesToDeploy}"
                 }
