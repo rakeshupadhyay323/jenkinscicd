@@ -5,7 +5,6 @@ pipeline {
     stages {
         stage('Checkout All') {
 			when {
-                branch 'production'
 				params name: 'isPackagesToDeploy', value: 'all'
             }
             steps {
