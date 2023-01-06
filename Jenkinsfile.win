@@ -7,7 +7,12 @@ pipeline {
             steps {
                 script {
 					echo "Packages to deploy ${isPackagesToDeploy}"
-                    if (params.isPackagesToDeploy == 'all') {
+					git sparse-checkout init --cone
+					git sparse-checkout add is/configurations
+                    mkdir is/tests/
+					if (params.isPackagesToDeploy == 'all') {
+						echo Deploy ALL packages
+						git sparse-checkout add is/packages/ is/tests/
                         echo "Hello from main branch. Workspace = '$env.WORKSPACE'"
                     }  else {
                         echo "Hello from '$env.BRANCH_NAME' branch!. Workspace = '$env.WORKSPACE'"
