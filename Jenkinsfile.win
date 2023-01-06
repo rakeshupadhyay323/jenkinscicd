@@ -6,11 +6,11 @@ pipeline {
         stage('Hello') {
             steps {
                 script {
-					echo "Hello from ${env.BRANCH_NAME} branch!"
-                    if (env.BRANCH_NAME == 'main') {
-                        echo "Hello from main branch. Workspace = ${env.WORKSPACE}"
+					echo "Hello from $BRANCH_NAME branch!"
+                    if ($BRANCH_NAME == 'main') {
+                        echo "Hello from main branch. Workspace = $WORKSPACE"
                     }  else {
-                        echo "Hello from ${env.BRANCH_NAME} branch!"
+                        echo "Hello from $BRANCH_NAME branch!"
                     }
                     }
             }
