@@ -12,7 +12,7 @@ pipeline {
 				bat 'git config core.sparsecheckout true'
                 bat 'git sparse-checkout init --cone'
 				bat 'git sparse-checkout add is/packages/ is/tests/'
-				bat 'timeout 5'
+				bat 'git read-tree -mu HEAD'
 			}
         }
     }
