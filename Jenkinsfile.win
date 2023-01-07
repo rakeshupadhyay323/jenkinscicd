@@ -20,6 +20,7 @@ pipeline {
 				dir("C:/ISCCR/") { 
 					bat "CodeReview.cmd -Dcode.review.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages  -Dcode.review.output.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ISCCR_Reports -Dcode.review.pkgprefix=Dummy -Dcode.review.folder-prefix=Dummy -Dcode.review.runmode=MULTI"
 				}
+				bat "echo 'If HTML report does not load properly, refer to this link https://stackoverflow.com/questions/37618892/jenkins-content-security-policy'"
 				publishHTML (target: [
 				  allowMissing: false,
 				  alwaysLinkToLastBuild: false,
