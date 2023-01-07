@@ -11,13 +11,15 @@ pipeline {
 				bat "echo 'In here'"
 				bat "git config core.sparsecheckout true"
 				bat "git sparse-checkout init --cone"
-				dir("${env.WORKSPACE}/${env.BUILD_NUMBER}/source") { 
-					bat "git sparse-checkout add src/is/packages"
-					bat 'git checkout'
-					bat "echo 'In here Again'"
+				bat "git sparse-checkout add src/is/packages"				
+			}
+        }
+		stage('Code Review') {
+			steps {
+				bat "echo 'In here 2'"
+				dir("C:/ISCCR/") { 
+					bat "CodeReview.cmd -Dcode.review.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages  -Dcode.review.report.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ISCCR_Reports -Dcode.review.pkgprefix=Dummy -Dcode.review.folder-prefix=Dummy -Dcode.review.runmode=MULTI"
 				}
-				dir("${env.WORKSPACE}/${env.BUILD_NUMBER}/build") { bat 'dir'}
-				
 			}
         }
     }
