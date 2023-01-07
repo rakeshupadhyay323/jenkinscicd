@@ -18,7 +18,7 @@ pipeline {
 			steps {
 				bat "echo 'In here 2'"
 				dir("C:/ISCCR/") { 
-					bat "CodeReview.cmd -Dcode.review.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages  -Dcode.review.report.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ISCCR_Reports -Dcode.review.pkgprefix=Dummy -Dcode.review.folder-prefix=Dummy -Dcode.review.runmode=MULTI"
+					bat "CodeReview.cmd -Dcode.review.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages  -Dcode.review.output.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ISCCR_Reports -Dcode.review.pkgprefix=Dummy -Dcode.review.folder-prefix=Dummy -Dcode.review.runmode=MULTI"
 				}
 			}
         }
