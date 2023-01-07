@@ -9,7 +9,7 @@ pipeline {
             }
             steps {
 				bat "echo 'In here'"
-				dir('$env.WORKSPACE/$env.BUILD_NUMBER/src') {}
+				dir("${env.WORKSPACE}/${env.BUILD_NUMBER}/src") {}
 				bat "git config core.sparsecheckout true"
                 bat "git sparse-checkout init --cone"
 				bat "git sparse-checkout add src/is/packages"
