@@ -13,6 +13,7 @@ pipeline {
 				bat "git sparse-checkout init --cone"
 				dir("${env.WORKSPACE}/${env.BUILD_NUMBER}/source") { 
 					bat 'git sparse-checkout add src/is/packages'
+					bat 'git checkout'
 				}
 				dir("${env.WORKSPACE}/${env.BUILD_NUMBER}/build") { bat 'dir'}
 				
