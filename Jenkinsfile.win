@@ -12,7 +12,7 @@ pipeline {
 				bat "git config core.sparsecheckout true"
 				bat "git sparse-checkout init --cone"
 				dir("${env.WORKSPACE}/${env.BUILD_NUMBER}/source") { 
-					bat 'git sparse-checkout add src/is/packages'
+					bat "git sparse-checkout add src/is/packages"
 					bat 'git checkout'
 					bat "echo 'In here Again'"
 				}
