@@ -20,6 +20,14 @@ pipeline {
 				dir("C:/ISCCR/") { 
 					bat "CodeReview.cmd -Dcode.review.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages  -Dcode.review.output.directory=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ISCCR_Reports -Dcode.review.pkgprefix=Dummy -Dcode.review.folder-prefix=Dummy -Dcode.review.runmode=MULTI"
 				}
+				publishHTML (target: [
+				  allowMissing: false,
+				  alwaysLinkToLastBuild: false,
+				  keepAll: true,
+				  reportDir: 'C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ISCCR_Reports',
+				  reportFiles: 'MULTI__CodeReviewReport__html-multi.html',
+				  reportName: "ISCCR Report"
+				])
 			}
         }
     }
