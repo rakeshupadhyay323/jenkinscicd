@@ -45,5 +45,6 @@ pipeline {
 				bat "echo 'In here 4'"
 				bat "${params.SAG_HOME}/common/lib/ant/bin/ant.bat -DtargetISGroupAlias=is_build_domain01_group -DSAGHome=${params.SAG_HOME} -DSAG_CI_HOME=${params.SAG_CI_HOME}/cicd/scripts/build-and-deploy/setup -DprojectName=wmIS_${env.BUILD_NUMBER}_build -DCHECKOUT_DIR=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/ -DbuildOutputDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/build/output -f ${params.SAG_CI_HOME}/cicd/scripts/build-and-deploy/run/build.xml deploy"
             }
+		}
     }
 }
