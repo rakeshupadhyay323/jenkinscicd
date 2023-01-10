@@ -37,7 +37,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				bat "echo 'In here 3'"
-				bat "$(sag.SAG_HOME)/common/lib/ant/bin/ant -DSAGHome=$(sag.SAG_HOME) -DSAG_CI_HOME=$(sag.SAG_CI_HOME)/cicd/scripts/build-and-deploy/setup -DprojectName=wmIS_${env.BUILD_NUMBER}_build -DtargetISGroupAlias=is_build_domain01_group -DCHECKOUT_DIR=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages -DbuildOutputDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/build/output -f $(sag.SAG_CI_HOME)/cicd/scripts/build-and-deploy/run/build.xml build"
+				bat "${params.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${params.SAG_HOME} -DSAG_CI_HOME=${params.SAG_CI_HOME}/cicd/scripts/build-and-deploy/setup -DprojectName=wmIS_${env.BUILD_NUMBER}_build -DtargetISGroupAlias=is_build_domain01_group -DCHECKOUT_DIR=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/packages -DbuildOutputDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/build/output -f ${params.SAG_CI_HOME}/cicd/scripts/build-and-deploy/run/build.xml build"
 			}
         }
     }
