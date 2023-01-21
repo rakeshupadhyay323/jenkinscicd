@@ -7,9 +7,6 @@ pipeline {
 	}
     stages {
         stage('Checkout All') {
-			when {
-				expression {params.isPackagesToDeploy == 'all'}
-            }
             steps {
 				bat "echo 'In here'"
 				bat "git config core.sparsecheckout true"
@@ -17,17 +14,6 @@ pipeline {
 				bat "git sparse-checkout add src/is/packages"				
 			}
         }
-/*		stage('Checkout Specific Packages') {
-*		when {
-*				expression {params.isPackagesToDeploy != 'all'}
-*            }
-*            steps {
-*				bat "echo 'List of Packages to deploy $params.isPackagesToDeploy'"
-*				bat "git config core.sparsecheckout true"
-*				bat "git sparse-checkout init --cone"
-*				bat "git sparse-checkout add src/is/packages"				
-*			}
-*/        }
 		stage('Code Review') {
 			steps {
 				bat "echo 'In here 2'"
