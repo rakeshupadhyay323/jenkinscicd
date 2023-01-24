@@ -45,7 +45,7 @@ pipeline {
 		}
 		stage('Test') {
             steps {
-				bat "${params.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${params.SAG_HOME} -DSAG_CI_HOME=${params.SAG_CI_HOME} -DprojectName=wmIS_${env.BUILD_NUMBER}_build test"
+				${params.SAG_HOME}/common/lib/ant/bin/ant -DisTestPkgsDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/tests -DjenkinsReportDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer//reports/wmunittest -f ${params.SAG_CI_HOME}/cicd/scripts/wmtestsuite/buildTest.xml test
 				junit 'report/'
             }
         }
