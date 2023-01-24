@@ -11,7 +11,7 @@ pipeline {
 				bat "echo 'In here'"
 				bat "git config core.sparsecheckout true"
 				bat "git sparse-checkout init --cone"
-				bat "git sparse-checkout add src/is/packages"				
+				bat "git sparse-checkout add src/is/packages src/is/tests"				
 			}
         }
 		stage('Code Review') {
