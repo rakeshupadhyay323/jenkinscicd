@@ -45,8 +45,8 @@ pipeline {
 		}
 		stage('Test') {
             steps {
-		bat "${params.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${params.SAG_HOME} -DSAG_CI_HOME=${params.SAG_CI_HOME} -DprojectName=wmIS_${env.BUILD_NUMBER}_build test"
-		junit 'report/'
+				bat "${params.SAG_HOME}/common/lib/ant/bin/ant -DSAGHome=${params.SAG_HOME} -DSAG_CI_HOME=${params.SAG_CI_HOME} -DprojectName=wmIS_${env.BUILD_NUMBER}_build test"
+				junit 'report/'
             }
         }
     }
