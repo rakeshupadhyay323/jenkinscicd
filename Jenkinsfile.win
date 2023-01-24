@@ -45,7 +45,7 @@ pipeline {
 		}
 		stage('Test') {
             steps {
-				${params.SAG_HOME}/common/lib/ant/bin/ant -DisTestPkgsDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/tests -DjenkinsReportDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer//reports/wmunittest -f ${params.SAG_CI_HOME}/cicd/scripts/wmtestsuite/buildTest.xml test
+				bat "${params.SAG_HOME}/common/lib/ant/bin/ant -DisTestPkgsDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/src/is/tests -DjenkinsReportDir=C:/ZZ_Rakesh/learning/cicd/jenkins/agent/workspace/IntegrationServer/reports/wmunittest -f ${params.SAG_CI_HOME}/cicd/scripts/wmtestsuite/buildTest.xml test"
 				junit 'report/'
             }
         }
