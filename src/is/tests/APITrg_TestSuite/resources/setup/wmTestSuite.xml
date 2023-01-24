@@ -3,30 +3,30 @@
     <webMethodsTestCase description="Generate a Test Wizard" name="TC_addInt">
         <service folder="APITrag.services" name="addInt">
             <input>
-                <file filename="resources/setup/APITrag_services_addInt_input.xml"/>
+                <file filename="resources/data/APITrag_services_addInt_input.xml"/>
             </input>
             <expected>
-                <file filename="resources/setup/APITrag_services_addInt_output.xml"/>
+                <file filename="resources/data/APITrag_services_addInt_output.xml"/>
             </expected>
         </service>
     </webMethodsTestCase>
     <webMethodsTestCase description="Generate a Test Wizard" name="TC_mulInt">
         <service folder="APITrag.services" name="mulInt">
             <input>
-                <file filename="resources/setup/APITrag_services_mulInt_input.xml"/>
+                <file filename="resources/data/APITrag_services_mulInt_input.xml"/>
             </input>
             <expected>
-                <file filename="resources/setup/APITrag_services_mulInt_output.xml"/>
+                <file filename="resources/data/APITrag_services_mulInt_output.xml"/>
             </expected>
         </service>
     </webMethodsTestCase>
     <webMethodsTestCase description="Generate a Test Wizard" name="TC_subInt">
         <service folder="APITrag.services" name="subInt">
             <input>
-                <file filename="resources/setup/APITrag_services_subInt_input.xml"/>
+                <file filename="resources/data/APITrag_services_subInt_input.xml"/>
             </input>
             <expected>
-                <file filename="resources/setup/APITrag_services_subInt_output.xml"/>
+                <file filename="resources/data/APITrag_services_subInt_output.xml"/>
             </expected>
         </service>
     </webMethodsTestCase>
